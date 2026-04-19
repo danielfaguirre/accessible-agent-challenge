@@ -1,0 +1,152 @@
+{
+  "nodes": [
+    {
+      "id": "d1",
+      "data": {
+        "input": {
+          "variables": [],
+          "description": "workflow variables"
+        },
+        "label": "start",
+        "output": {
+          "data": {}
+        },
+        "variables": [],
+        "layoutDirection": "LR",
+        "auxiliaryHandlePosition": "bottom"
+      },
+      "type": "control-start",
+      "dragging": false,
+      "measured": {
+        "width": 26,
+        "height": 26
+      },
+      "position": {
+        "x": 0,
+        "y": 18
+      },
+      "selected": false,
+      "deletable": false,
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    {
+      "id": "d2",
+      "data": {
+        "label": "End",
+        "layoutDirection": "LR",
+        "auxiliaryHandlePosition": "bottom"
+      },
+      "type": "control-end",
+      "measured": {
+        "width": 26,
+        "height": 26
+      },
+      "position": {
+        "x": 927,
+        "y": 18
+      },
+      "selected": false,
+      "deletable": false,
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    {
+      "id": "8b347662-1268-4ca0-9fe5-72d3ac9cfbb2",
+      "data": {
+        "input": {
+          "name": "PS Agent",
+          "model": "claude-sonnet-4-5@20250929",
+          "showPlan": false,
+          "userquery": "Read the HTML file inside the Project repo to provide a clear report in markdown",
+          "description": "agent description...",
+          "systemPrompt": "You are an accessibility review agent.\nAnalyze provided HTML or DOM and identify WCAG-related accessibility issues.\nDetect problems such as missing alt text, missing labels, poor color contrast,\nincorrect semantic structure, and missing ARIA attributes.\nReturn a clear list of issues and suggest recommendation to fix the issues.\n\nGenerate a report in a markdown format documenting findings and recomendations",
+          "default_tools": [
+            "read_file",
+            "write_file",
+            "command_line"
+          ],
+          "selectedPersonaId": "8744694d-3930-4f39-88e2-5a31a00e67a1"
+        },
+        "label": "PS Agent",
+        "output": {
+          "response": {
+            "output": ""
+          }
+        },
+        "variables": [
+          {
+            "name": "response",
+            "path": "data.result.response",
+            "type": "string",
+            "description": "agent response text"
+          }
+        ],
+        "layoutDirection": "LR",
+        "auxiliaryHandlePosition": "bottom"
+      },
+      "type": "agent-custom",
+      "dragging": false,
+      "measured": {
+        "width": 175,
+        "height": 62
+      },
+      "position": {
+        "x": 652,
+        "y": 0
+      },
+      "selected": false,
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    {
+      "id": "f1fe7516-02a8-4bd4-a0c4-50d9e9d87fa3",
+      "data": {
+        "type": "clone",
+        "input": {
+          "srcBranch": "dev"
+        },
+        "label": "Project Tasks",
+        "layoutDirection": "LR",
+        "auxiliaryHandlePosition": "bottom"
+      },
+      "type": "project",
+      "measured": {
+        "width": 157,
+        "height": 62
+      },
+      "position": {
+        "x": 126,
+        "y": 0
+      },
+      "selected": false,
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  ],
+  "edges": [
+    {
+      "id": "8b347662-1268-4ca0-9fe5-72d3ac9cfbb2->d2",
+      "type": "add-edge",
+      "source": "8b347662-1268-4ca0-9fe5-72d3ac9cfbb2",
+      "target": "d2"
+    },
+    {
+      "id": "0f57b758-3402-4ed6-a706-33c1c02e7a86",
+      "type": "add-edge",
+      "source": "d1",
+      "target": "f1fe7516-02a8-4bd4-a0c4-50d9e9d87fa3"
+    },
+    {
+      "id": "f1fe7516-02a8-4bd4-a0c4-50d9e9d87fa3->8b347662-1268-4ca0-9fe5-72d3ac9cfbb2",
+      "type": "add-edge",
+      "source": "f1fe7516-02a8-4bd4-a0c4-50d9e9d87fa3",
+      "target": "8b347662-1268-4ca0-9fe5-72d3ac9cfbb2"
+    }
+  ],
+  "viewport": {
+    "x": 109,
+    "y": 253.9134312696747,
+    "zoom": 1.1479538300104932
+  }
+}
