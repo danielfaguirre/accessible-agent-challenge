@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>pg</title>
+  <title>ACME - Home | Shop Quality Products at Great Prices</title>
   <style>
     * {
       margin: 0;
@@ -13,11 +13,39 @@
     body {
       font-family: Arial, sans-serif;
       background: #cccccc;
-      color: #aaaaaa;
+      color: #222222;
     }
 
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000000;
+      color: #ffffff;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-size: 15px;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Focus styles for all interactive elements */
+    a:focus,
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 3px solid #0055cc;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
     .topbar {
-      background: #bbbbbb;
+      background: #333333;
       padding: 14px 24px;
       display: flex;
       align-items: center;
@@ -27,17 +55,22 @@
     .topbar .logo {
       font-size: 22px;
       font-weight: bold;
-      color: #c0c0c0;
+      color: #ffffff;
     }
 
     .topbar a {
-      color: #b8b8b8;
+      color: #f0f0f0;
       text-decoration: none;
       font-size: 15px;
     }
 
+    .topbar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero */
     .hero {
-      background: #d0d0d0;
+      background: #e8e8e8;
       padding: 60px 24px;
       text-align: center;
     }
@@ -53,20 +86,20 @@
 
     .hero h1 {
       font-size: 36px;
-      color: #c5c5c5;
+      color: #111111;
       margin-bottom: 12px;
     }
 
     .hero p {
       font-size: 16px;
-      color: #c8c8c8;
+      color: #333333;
       max-width: 600px;
       margin: 0 auto 24px;
     }
 
     .hero button {
-      background: #c2c2c2;
-      color: #cbcbcb;
+      background: #0055cc;
+      color: #ffffff;
       border: none;
       padding: 12px 28px;
       font-size: 16px;
@@ -74,13 +107,18 @@
       border-radius: 4px;
     }
 
+    .hero button:hover {
+      background: #003fa3;
+    }
+
+    /* Cards */
     .section {
       padding: 40px 24px;
     }
 
-    .section-title {
+    .section h2 {
       font-size: 24px;
-      color: #b5b5b5;
+      color: #111111;
       margin-bottom: 20px;
     }
 
@@ -91,7 +129,7 @@
     }
 
     .card {
-      background: #d8d8d8;
+      background: #f0f0f0;
       border-radius: 8px;
       padding: 20px;
       flex: 1 1 220px;
@@ -107,14 +145,14 @@
 
     .card .price {
       font-size: 18px;
-      color: #c3c3c3;
+      color: #111111;
       margin-bottom: 8px;
     }
 
     .card button {
       width: 100%;
-      background: #c9c9c9;
-      color: #d2d2d2;
+      background: #0055cc;
+      color: #ffffff;
       border: none;
       padding: 10px;
       cursor: pointer;
@@ -122,40 +160,53 @@
       font-size: 14px;
     }
 
-    .form-section {
-      background: #d4d4d4;
+    .card button:hover {
+      background: #003fa3;
+    }
+
+    /* Contact form */
+    form.form-section {
+      background: #e4e4e4;
       padding: 40px 24px;
       max-width: 520px;
     }
 
-    .form-section .form-title {
+    form.form-section h2 {
       font-size: 22px;
-      color: #bebebe;
+      color: #111111;
       margin-bottom: 20px;
     }
 
-    .form-section input,
-    .form-section textarea,
-    .form-section select {
+    form.form-section label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: #222222;
+      font-weight: bold;
+    }
+
+    form.form-section input,
+    form.form-section textarea,
+    form.form-section select {
       display: block;
       width: 100%;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       padding: 10px;
-      background: #cfcfcf;
-      border: 1px solid #c5c5c5;
-      color: #c0c0c0;
+      background: #ffffff;
+      border: 1px solid #777777;
+      color: #111111;
       font-size: 15px;
       border-radius: 4px;
     }
 
-    .form-section textarea {
+    form.form-section textarea {
       height: 100px;
       resize: none;
     }
 
-    .form-section button {
-      background: #c6c6c6;
-      color: #cecece;
+    form.form-section button {
+      background: #0055cc;
+      color: #ffffff;
       border: none;
       padding: 12px 24px;
       font-size: 15px;
@@ -163,83 +214,144 @@
       border-radius: 4px;
     }
 
+    form.form-section button:hover {
+      background: #003fa3;
+    }
+
+    /* Footer */
     .footer {
-      background: #c4c4c4;
+      background: #333333;
       padding: 20px 24px;
       font-size: 13px;
-      color: #bdbdbd;
+      color: #f0f0f0;
       display: flex;
       gap: 24px;
+      align-items: center;
     }
 
     .footer a {
-      color: #bfbfbf;
-      text-decoration: none;
+      color: #f0f0f0;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="topbar">
     <div class="logo">ACME</div>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </div>
+    <nav aria-label="Main navigation">
+      <a href="#" aria-current="page">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
 
-  <div class="hero">
-    <img src="https://picsum.photos/seed/hero/900/320">
-    <h1>Welcome</h1>
-    <p>Discover the best products at the best prices. Shop now and save big on every order.</p>
-    <button>Click here</button>
-  </div>
+  <main id="main-content">
 
-  <div class="section">
-    <div class="section-title">Featured</div>
+    <section class="hero" aria-labelledby="hero-heading">
+      <img
+        src="https://picsum.photos/seed/hero/900/320"
+        alt="Featured promotional banner showcasing our latest collection"
+      >
+      <h1 id="hero-heading">Welcome</h1>
+      <p>Discover the best products at the best prices. Shop now and save big on every order.</p>
+      <button>Shop our featured collection</button>
+    </section>
 
-    <div class="cards">
+    <section class="section" aria-labelledby="featured-heading">
+      <h2 id="featured-heading">Featured Products</h2>
 
-      <div class="card">
-        <img src="https://picsum.photos/seed/prod1/400/140">
-        <div class="price">$29.99</div>
-        <button>Click</button>
+      <div class="cards">
+
+        <article class="card">
+          <img
+            src="https://picsum.photos/seed/prod1/400/140"
+            alt="Premium wireless headphones in black"
+          >
+          <p class="price">$29.99</p>
+          <button aria-label="Add Premium Wireless Headphones to cart">Add to Cart</button>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://picsum.photos/seed/prod2/400/140"
+            alt="Ergonomic office chair with lumbar support"
+          >
+          <p class="price">$49.00</p>
+          <button aria-label="Add Ergonomic Office Chair to cart">Add to Cart</button>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://picsum.photos/seed/prod3/400/140"
+            alt="Stainless steel water bottle, 32oz"
+          >
+          <p class="price">$14.50</p>
+          <button aria-label="Add Stainless Steel Water Bottle to cart">Add to Cart</button>
+        </article>
+
       </div>
+    </section>
 
-      <div class="card">
-        <img src="https://picsum.photos/seed/prod2/400/140">
-        <div class="price">$49.00</div>
-        <button>Click</button>
-      </div>
+    <form class="form-section" method="post" action="/contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Get in touch</h2>
 
-      <div class="card">
-        <img src="https://picsum.photos/seed/prod3/400/140">
-        <div class="price">$14.50</div>
-        <button>Click</button>
-      </div>
+      <label for="contact-name">Name *</label>
+      <input
+        type="text"
+        id="contact-name"
+        name="name"
+        required
+        aria-required="true"
+        autocomplete="name"
+      >
 
-    </div>
-  </div>
+      <label for="contact-email">Email Address *</label>
+      <input
+        type="email"
+        id="contact-email"
+        name="email"
+        required
+        aria-required="true"
+        autocomplete="email"
+      >
 
-  <div class="form-section">
-    <div class="form-title">Get in touch</div>
-    <input type="text">
-    <input type="email">
-    <select>
-      <option value="">--</option>
-      <option value="s">Sales</option>
-      <option value="s">Support</option>
-    </select>
-    <textarea></textarea>
-    <button>Go</button>
-  </div>
+      <label for="contact-department">Department *</label>
+      <select
+        id="contact-department"
+        name="department"
+        required
+        aria-required="true"
+      >
+        <option value="">Please select a department</option>
+        <option value="sales">Sales</option>
+        <option value="support">Support</option>
+      </select>
 
-  <div class="footer">
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-    <span>© 2026</span>
-  </div>
+      <label for="contact-message">Message *</label>
+      <textarea
+        id="contact-message"
+        name="message"
+        required
+        aria-required="true"
+      ></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+  </main>
+
+  <footer class="footer">
+    <nav aria-label="Footer navigation">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Accessibility Statement</a>
+    </nav>
+    <span>© 2026 ACME Corporation</span>
+  </footer>
 
 </body>
 </html>
