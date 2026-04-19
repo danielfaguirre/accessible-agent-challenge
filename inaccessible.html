@@ -16,9 +16,6 @@
       color: #aaaaaa;
     }
 
-    /* ❌ No skip-to-content link */
-
-    /* ── Top bar ── */
     .topbar {
       background: #bbbbbb;
       padding: 14px 24px;
@@ -30,16 +27,15 @@
     .topbar .logo {
       font-size: 22px;
       font-weight: bold;
-      color: #c0c0c0; /* ❌ near-invisible on #bbbbbb */
+      color: #c0c0c0;
     }
 
     .topbar a {
-      color: #b8b8b8; /* ❌ contrast ratio ~1.1:1 */
+      color: #b8b8b8;
       text-decoration: none;
       font-size: 15px;
     }
 
-    /* ── Hero ── */
     .hero {
       background: #d0d0d0;
       padding: 60px 24px;
@@ -53,41 +49,38 @@
       object-fit: cover;
       display: block;
       margin: 0 auto 24px;
-      /* ❌ no alt attribute on the img tag */
     }
 
     .hero h1 {
       font-size: 36px;
-      color: #c5c5c5; /* ❌ very low contrast on #d0d0d0 */
+      color: #c5c5c5;
       margin-bottom: 12px;
     }
 
     .hero p {
       font-size: 16px;
-      color: #c8c8c8; /* ❌ low contrast */
+      color: #c8c8c8;
       max-width: 600px;
       margin: 0 auto 24px;
     }
 
     .hero button {
       background: #c2c2c2;
-      color: #cbcbcb; /* ❌ near-zero contrast */
+      color: #cbcbcb;
       border: none;
       padding: 12px 28px;
       font-size: 16px;
       cursor: pointer;
       border-radius: 4px;
-      /* ❌ no :focus style */
     }
 
-    /* ── Cards ── */
     .section {
       padding: 40px 24px;
     }
 
     .section-title {
       font-size: 24px;
-      color: #b5b5b5; /* ❌ low contrast */
+      color: #b5b5b5;
       margin-bottom: 20px;
     }
 
@@ -110,28 +103,25 @@
       object-fit: cover;
       border-radius: 4px;
       margin-bottom: 12px;
-      /* ❌ no alt on img */
     }
 
     .card .price {
       font-size: 18px;
-      color: #c3c3c3; /* ❌ low contrast */
+      color: #c3c3c3;
       margin-bottom: 8px;
     }
 
     .card button {
       width: 100%;
       background: #c9c9c9;
-      color: #d2d2d2; /* ❌ near-zero contrast */
+      color: #d2d2d2;
       border: none;
       padding: 10px;
       cursor: pointer;
       border-radius: 4px;
       font-size: 14px;
-      /* ❌ button text is just "Click" — no context */
     }
 
-    /* ── Contact form ── */
     .form-section {
       background: #d4d4d4;
       padding: 40px 24px;
@@ -140,7 +130,7 @@
 
     .form-section .form-title {
       font-size: 22px;
-      color: #bebebe; /* ❌ low contrast */
+      color: #bebebe;
       margin-bottom: 20px;
     }
 
@@ -153,10 +143,9 @@
       padding: 10px;
       background: #cfcfcf;
       border: 1px solid #c5c5c5;
-      color: #c0c0c0; /* ❌ low contrast */
+      color: #c0c0c0;
       font-size: 15px;
       border-radius: 4px;
-      /* ❌ no associated <label> element for any of these */
     }
 
     .form-section textarea {
@@ -166,7 +155,7 @@
 
     .form-section button {
       background: #c6c6c6;
-      color: #cecece; /* ❌ near-zero contrast */
+      color: #cecece;
       border: none;
       padding: 12px 24px;
       font-size: 15px;
@@ -174,29 +163,25 @@
       border-radius: 4px;
     }
 
-    /* ── Footer ── */
     .footer {
       background: #c4c4c4;
       padding: 20px 24px;
       font-size: 13px;
-      color: #bdbdbd; /* ❌ low contrast */
+      color: #bdbdbd;
       display: flex;
       gap: 24px;
     }
 
     .footer a {
-      color: #bfbfbf; /* ❌ low contrast */
+      color: #bfbfbf;
       text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- ❌ <div> used everywhere instead of <header>, <nav>, <main>, <section>, <footer> -->
-
   <div class="topbar">
     <div class="logo">ACME</div>
-    <!-- ❌ plain <a> tags with no nav landmark, no current-page indicator -->
     <a href="#">Home</a>
     <a href="#">Shop</a>
     <a href="#">About</a>
@@ -204,14 +189,9 @@
   </div>
 
   <div class="hero">
-    <!-- ❌ img has no alt attribute -->
     <img src="https://picsum.photos/seed/hero/900/320">
-
-    <!-- ❌ heading hierarchy skipped: no <h1> in page context, just presentational sizing -->
     <h1>Welcome</h1>
     <p>Discover the best products at the best prices. Shop now and save big on every order.</p>
-
-    <!-- ❌ button text is vague, no aria-label -->
     <button>Click here</button>
   </div>
 
@@ -221,10 +201,8 @@
     <div class="cards">
 
       <div class="card">
-        <!-- ❌ decorative-looking but meaningful image, no alt -->
         <img src="https://picsum.photos/seed/prod1/400/140">
         <div class="price">$29.99</div>
-        <!-- ❌ "Click" gives zero context about what will happen -->
         <button>Click</button>
       </div>
 
@@ -245,10 +223,6 @@
 
   <div class="form-section">
     <div class="form-title">Get in touch</div>
-
-    <!-- ❌ no <form> element, just raw inputs -->
-    <!-- ❌ no <label> for any field -->
-    <!-- ❌ no placeholder is not a substitute for a label, but even placeholders are absent here -->
     <input type="text">
     <input type="email">
     <select>
@@ -257,13 +231,10 @@
       <option value="s">Support</option>
     </select>
     <textarea></textarea>
-
-    <!-- ❌ submit button has no descriptive text -->
     <button>Go</button>
   </div>
 
   <div class="footer">
-    <!-- ❌ no footer landmark, links have no descriptive text -->
     <a href="#">Link</a>
     <a href="#">Link</a>
     <a href="#">Link</a>
