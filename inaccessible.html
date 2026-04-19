@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>pg</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #cccccc;
+      color: #aaaaaa;
+    }
+
+    /* ❌ No skip-to-content link */
+
+    /* ── Top bar ── */
+    .topbar {
+      background: #bbbbbb;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .topbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #c0c0c0; /* ❌ near-invisible on #bbbbbb */
+    }
+
+    .topbar a {
+      color: #b8b8b8; /* ❌ contrast ratio ~1.1:1 */
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: #d0d0d0;
+      padding: 60px 24px;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 900px;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 24px;
+      /* ❌ no alt attribute on the img tag */
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      color: #c5c5c5; /* ❌ very low contrast on #d0d0d0 */
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #c8c8c8; /* ❌ low contrast */
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .hero button {
+      background: #c2c2c2;
+      color: #cbcbcb; /* ❌ near-zero contrast */
+      border: none;
+      padding: 12px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      /* ❌ no :focus style */
+    }
+
+    /* ── Cards ── */
+    .section {
+      padding: 40px 24px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      color: #b5b5b5; /* ❌ low contrast */
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #d8d8d8;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1 1 220px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      /* ❌ no alt on img */
+    }
+
+    .card .price {
+      font-size: 18px;
+      color: #c3c3c3; /* ❌ low contrast */
+      margin-bottom: 8px;
+    }
+
+    .card button {
+      width: 100%;
+      background: #c9c9c9;
+      color: #d2d2d2; /* ❌ near-zero contrast */
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+      /* ❌ button text is just "Click" — no context */
+    }
+
+    /* ── Contact form ── */
+    .form-section {
+      background: #d4d4d4;
+      padding: 40px 24px;
+      max-width: 520px;
+    }
+
+    .form-section .form-title {
+      font-size: 22px;
+      color: #bebebe; /* ❌ low contrast */
+      margin-bottom: 20px;
+    }
+
+    .form-section input,
+    .form-section textarea,
+    .form-section select {
+      display: block;
+      width: 100%;
+      margin-bottom: 14px;
+      padding: 10px;
+      background: #cfcfcf;
+      border: 1px solid #c5c5c5;
+      color: #c0c0c0; /* ❌ low contrast */
+      font-size: 15px;
+      border-radius: 4px;
+      /* ❌ no associated <label> element for any of these */
+    }
+
+    .form-section textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    .form-section button {
+      background: #c6c6c6;
+      color: #cecece; /* ❌ near-zero contrast */
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: #c4c4c4;
+      padding: 20px 24px;
+      font-size: 13px;
+      color: #bdbdbd; /* ❌ low contrast */
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer a {
+      color: #bfbfbf; /* ❌ low contrast */
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ❌ <div> used everywhere instead of <header>, <nav>, <main>, <section>, <footer> -->
+
+  <div class="topbar">
+    <div class="logo">ACME</div>
+    <!-- ❌ plain <a> tags with no nav landmark, no current-page indicator -->
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="hero">
+    <!-- ❌ img has no alt attribute -->
+    <img src="https://picsum.photos/seed/hero/900/320">
+
+    <!-- ❌ heading hierarchy skipped: no <h1> in page context, just presentational sizing -->
+    <h1>Welcome</h1>
+    <p>Discover the best products at the best prices. Shop now and save big on every order.</p>
+
+    <!-- ❌ button text is vague, no aria-label -->
+    <button>Click here</button>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Featured</div>
+
+    <div class="cards">
+
+      <div class="card">
+        <!-- ❌ decorative-looking but meaningful image, no alt -->
+        <img src="https://picsum.photos/seed/prod1/400/140">
+        <div class="price">$29.99</div>
+        <!-- ❌ "Click" gives zero context about what will happen -->
+        <button>Click</button>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/prod2/400/140">
+        <div class="price">$49.00</div>
+        <button>Click</button>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/prod3/400/140">
+        <div class="price">$14.50</div>
+        <button>Click</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-title">Get in touch</div>
+
+    <!-- ❌ no <form> element, just raw inputs -->
+    <!-- ❌ no <label> for any field -->
+    <!-- ❌ no placeholder is not a substitute for a label, but even placeholders are absent here -->
+    <input type="text">
+    <input type="email">
+    <select>
+      <option value="">--</option>
+      <option value="s">Sales</option>
+      <option value="s">Support</option>
+    </select>
+    <textarea></textarea>
+
+    <!-- ❌ submit button has no descriptive text -->
+    <button>Go</button>
+  </div>
+
+  <div class="footer">
+    <!-- ❌ no footer landmark, links have no descriptive text -->
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <span>© 2026</span>
+  </div>
+
+</body>
+</html>
